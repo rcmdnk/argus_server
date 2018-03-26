@@ -1,0 +1,28 @@
+[paps]
+centralbanning.type = remote
+centralbanning.enabled = <%= @centralban_enabled %>
+centralbanning.dn = <%= @centralban_dn %>
+centralbanning.hostname = <%= @centralban_host %>
+centralbanning.port = 8150
+centralbanning.path = /pap/services/
+centralbanning.protocol = https
+centralbanning.public = true
+
+[paps:properties]
+poll_interval = 300
+ordering = default
+
+[repository]
+consistency_check = true
+consistency_check.repair = false
+
+[security]
+certificate = /etc/grid-security/hostcert.pem
+private_key = /etc/grid-security/hostkey.pem
+
+[standalone-service]
+entity_id = http://<%= @argus_host %>/pap
+hostname = <%= @argus_host %>
+port = 8150
+shutdown_port = 8151
+shutdown_command = shutdown
