@@ -1,7 +1,7 @@
 resource "http://authz-interop.org/xacml/resource/resource-type/wn" {
   obligation "http://glite.org/xacml/obligation/local-environment-map" {}
   action "http://glite.org/xacml/action/execute" {
-  <% @argus_permit.each do |value| -%>
+  <% @pap_policy['permit'].each do |value| -%>
     rule permit { <%= value %> }
   <% end -%>
   }
@@ -9,7 +9,7 @@ resource "http://authz-interop.org/xacml/resource/resource-type/wn" {
 resource "http://lcg.cscs.ch/xacml/resource/resource-type/creamce" {
   obligation "http://glite.org/xacml/obligation/local-environment-map" {}
   action ".*" {
-  <% @argus_permit.each do |value| -%>
+  <% @pap_policy['permit'].each do |value| -%>
     rule permit { <%= value %> }
   <% end -%>
   }
@@ -17,7 +17,7 @@ resource "http://lcg.cscs.ch/xacml/resource/resource-type/creamce" {
 resource "http://authz-interop.org/xacml/resource/resource-type/arc" {
   obligation "http://glite.org/xacml/obligation/local-environment-map" {}
   action ".*" {
-  <% @argus_permit.each do |value| -%>
+  <% @pap_policy['permit'].each do |value| -%>
     rule permit { <%= value %> }
   <% end -%>
   }
