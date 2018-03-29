@@ -38,28 +38,4 @@ class argus_server::config {
     content => template("${module_name}/pepd.ini.erb"),
     notify  => Service['argus-pepd'],
   }    
-
-  # XML policy to load
-  file { '/etc/argus/argus_policy.xml':
-    ensure  => 'present',
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0600',
-    content => template("${module_name}/argus_policy.erb"),
-  }
-  # Cleanup the policy before loading it
-  exec { 'remove_argus_policy':
-    command     => '/usr/bin/pap-admin remove-all-policies',
-    refreshonly => !$force_reload,
-    logoutput   => true, #"on_failure", # "true"
-    subscribe   => File['/etc/argus/argus_policy.xml'],
-  }
-
-  # Load the policy
-  exec { 'apply_argus_policy':
-    command     => '/usr/bin/pap-admin add-policies-from-file /etc/argus/argus_policy.xml',
-    refreshonly => true,
-    logoutput   => true, #"on_failure", # "true"
-    subscribe   => Exec['remove_argus_policy'],
-  }
 }

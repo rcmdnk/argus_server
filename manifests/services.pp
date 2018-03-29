@@ -8,16 +8,21 @@ class argus_server::services {
     unless      => '/bin/ls /etc/grid-security/certificates/*.r0 1>/dev/null 2>&1'
   }
 
+  exec { 'hostcert update':
+    command   => '/usr/bin/systemctl restart argus-pap argus-pdp argus-pepd',
+    refreshonly => true,
+    subscribe => [
+      File['/etc/grid-security/hostcert.pem'],
+      File['/etc/grid-security/hostkey.pem'],
+    ],
+  }
+
   service { 'argus-pap':
     ensure     => running,
     enable     => true,
     hasrestart => true,
     hasstatus  => true,
     require     => Exec['run fetch-crl'],
-    subscribe   => [
-      File['/etc/grid-security/hostcert.pem'],
-      File['/etc/grid-security/hostkey.pem'],
-    ],
     notify => Service['argus-pdp'],
   }
   
