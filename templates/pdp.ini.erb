@@ -26,7 +26,7 @@ entityId = http://<%= @argus_host %>/pdp
 hostname = <%= @argus_host %>
 port = 8152
 adminPort = 8153
-adminPassword = pdpadmin_<%= @admin_password %>
+adminPassword = <%= @admin_password %>
 
 [POLICY]
 paps = https://<%= @argus_host %>:8150/pap/services/ProvisioningService
