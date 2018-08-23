@@ -20,11 +20,11 @@ class argus_server::policy(
 
   # Load the policy
   exec { 'apply argus policy':
-    path        => '/usr/bin:/bin:/usr/sbin:/sbin',
-    command     => "sleep 60; pap-admin add-policies-from-file /etc/argus/argus_policy.xml; ${argus_server::restart_cmd}",
-    onlyif      => "bash -c \"[[ -r /etc/argus/argus_policy.xml ]] && pap-admin lp | grep -q 'No policies'\"",
-    logoutput   => true, #"on_failure", # "true"
-    require     => Exec['ssl restart']
+    path      => '/usr/bin:/bin:/usr/sbin:/sbin',
+    command   => "sleep 60; pap-admin add-policies-from-file /etc/argus/argus_policy.xml; ${argus_server::restart_cmd}",
+    onlyif    => "bash -c \"[[ -r /etc/argus/argus_policy.xml ]] && pap-admin lp | grep -q 'No policies'\"",
+    logoutput => true, #"on_failure", # "true"
+    require   => Exec['ssl restart']
   }
 
   # Load the policy
