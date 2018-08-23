@@ -1,5 +1,6 @@
 argus_server::argus_host: '<argus_host_fqdn>'
 argus_server::argus_host_dn: '<argus_host_dn>'
+argus_server::admin_password: '<admin_password>'
 argus_server::centralban_enabled: 'true'
 argus_server::centralban_host: '<central_ban_host>'
 argus_server::centralban_dn: '<central_ban_host_dn>'
