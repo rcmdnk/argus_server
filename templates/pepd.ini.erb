@@ -26,7 +26,7 @@ entityId = http://<%= @argus_host %>/pepd
 hostname = <%= @argus_host %>
 port = 8154
 adminPort = 8155
-adminPassword = pepdadmin_<%= @facts['uniqueid'] %>
+adminPassword = pepdadmin_<%= @admin_password %>
 
 # PIPs to apply on incoming request
 pips = REQVALIDATOR_PIP OPENSSLSUBJECT_PIP GLITEXACMLPROFILE_PIP COMMONXACMLPROFILE_PIP
@@ -73,6 +73,6 @@ acceptedProfileIDs = http://dci-sec.org/xacml/profile/common-authz/1.1
 #
 [ACCOUNTMAP_OH]
 parserClass = org.glite.authz.pep.obligation.dfpmap.DFPMObligationHandlerConfigurationParser
-accountMapFile = /etc/grid-security/grid-mapfile 
+accountMapFile = /etc/grid-security/grid-mapfile
 groupMapFile = /etc/grid-security/groupmapfile
 gridMapDir = /etc/grid-security/gridmapdir
