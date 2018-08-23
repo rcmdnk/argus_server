@@ -26,4 +26,4 @@ matrix:
     env: PUPPET_GEM_VERSION="~> 5.0"
 
 notifications:
-email: false
+  email: false
