@@ -2,7 +2,7 @@
   "name": "kreczko-argus",
   "author": "kreczko",
   "description": "Puppet module for Argus server",
-  "license": "Apache License 2.0",
+  "license": "Apache-2.0",
   "project_page": "https://github.com/HEP-Puppet",
   "source": "git@github.com:HEP-Puppet/puppet-argus.git",
   "summary": "Puppet module for Argus server",
