@@ -1,4 +1,7 @@
-class argus_server::services {
+class argus_server::services(
+  $servicecert = $argus_server::servicecert,
+  $servicekey  = $argus_server::servicekey,
+) {
 
   exec { 'run fetch-crl':
     # fetch-crl returns false if there's a problem with any of the CAs and therefore blocking
@@ -12,8 +15,8 @@ class argus_server::services {
     command     => $argus_server::restart_cmd,
     refreshonly => true,
     subscribe   => [
-      File['/etc/grid-security/hostcert.pem'],
-      File['/etc/grid-security/hostkey.pem'],
+      File[$servicecert],
+      File[$servicekey],
     ],
   }
 
