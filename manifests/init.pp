@@ -21,6 +21,8 @@ class argus_server (
   $centralban_enabled     = false,
   $centralban_host        = 'argusngi.gridpp.rl.ac.uk',
   $centralban_dn          = '/C=UK/O=eScience/OU=CLRC/L=RAL/CN=argusngi.gridpp.rl.ac.uk',
+  $servicecert            = '/etc/grid-security/hostcert.pem',
+  $servicekey             = '/etc/grid-security/hostkey.pem',
 ){
 
   case $facts['os']['family'] {
