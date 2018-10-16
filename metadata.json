@@ -1,20 +1,12 @@
 {
-  "name": "kreczko-argus",
-  "author": "kreczko",
+  "name": "HEPPuppet-argus",
+  "author": "HEPPuppet",
   "description": "Puppet module for Argus server",
   "license": "Apache-2.0",
   "project_page": "https://github.com/HEP-Puppet",
-  "source": "git@github.com:HEP-Puppet/puppet-argus.git",
+  "source": "https://github.com/HEP-Puppet/argus_server",
   "summary": "Puppet module for Argus server",
-  "version": "0.0.1",
-  "checksums": {
-    "Modulefile": "41d0679764034b33baae90eebe5c957e",
-    "README.markdown": "49a3cf08907c00ad60255774c636ec7e",
-    "Rakefile": "f37e6131fe7de9a49b09d31596f5fbf1",
-    "manifests/init.pp": "50357c40ff3511615489a16d6159f4d2",
-    "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
-    "spec/spec_helper.rb": "3ea886dd135e120afa31e0aab12e85b0",
-    "tests/init.pp": "d7d31bbde9fad7650a4b5d90e58cda11"
-  },
+  "version": "0.0.2",
+  "checksums": {},
   "dependencies": []
 }

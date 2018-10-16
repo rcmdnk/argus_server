@@ -27,4 +27,4 @@ acceptance: bundle_install
 	#bundle exec rake beaker:default
 
 test:
-bundle exec rake lint
+	bundle exec rake lint

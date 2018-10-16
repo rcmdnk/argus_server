@@ -26,7 +26,7 @@ def update_readme(release):
             break
 
     content = ''.join(content)
-    with open('README.md', 'w+') as f:
+    with open(input_file, 'w+') as f:
         f.write(content)
 
 

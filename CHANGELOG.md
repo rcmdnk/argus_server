@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/HEP-Puppet/argus_server/tree/HEAD)
+## [v0.0.2](https://github.com/HEP-Puppet/argus_server/tree/v0.0.2)
 
-[Full Changelog](https://github.com/HEP-Puppet/argus_server/compare/1ec2d94efc6b213233c873b7e6ad32c2b411e3e9...HEAD)
+[Full Changelog](https://github.com/HEP-Puppet/argus_server/compare/1ec2d94efc6b213233c873b7e6ad32c2b411e3e9...v0.0.2)
 
 **Merged pull requests:**
 
