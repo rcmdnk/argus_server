@@ -3,7 +3,7 @@ build:
 	puppet module build
 
 changelog:
-	github_changelog_generator -u hep-puppet -p htcondor
+	github_changelog_generator -u hep-puppet -p argus_server
 
 update_release:
 	@python update_release.py

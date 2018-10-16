@@ -1,12 +1,11 @@
 {
-  "name": "HEPPuppet-argus",
-  "author": "HEPPuppet",
   "description": "Puppet module for Argus server",
   "license": "Apache-2.0",
+  "author": "HEPPuppet",
   "project_page": "https://github.com/HEP-Puppet",
-  "source": "https://github.com/HEP-Puppet/argus_server",
   "summary": "Puppet module for Argus server",
-  "version": "0.0.2",
-  "checksums": {},
-  "dependencies": []
+  "source": "https://github.com/HEP-Puppet/argus_server",
+  "version": "0.0.3",
+  "dependencies": [],
+  "name": "HEPPuppet-argus"
 }
