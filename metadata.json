@@ -16,5 +16,14 @@
     "spec/spec_helper.rb": "3ea886dd135e120afa31e0aab12e85b0",
     "tests/init.pp": "d7d31bbde9fad7650a4b5d90e58cda11"
   },
-  "dependencies": []
+  "dependencies": [
+    {
+      "name": "puppetlabs/concat",
+      "version_requirement": "\u003e\u003d1.0.0"
+    },
+    {
+      "name": "puppet/fetchcrl"
+      "version_requirement": "\u003e\u003d2.1.0"
+    }
+  ]
 }
