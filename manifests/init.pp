@@ -24,7 +24,7 @@ class argus_server (
   $servicecert            = '/etc/grid-security/hostcert.pem',
   $servicekey             = '/etc/grid-security/hostkey.pem',
 ){
-
+  class { 'argus_server::repositories': }
   case $facts['os']['family'] {
     'RedHat': {
       case $facts['os']['release']['major'] {
@@ -41,5 +41,5 @@ class argus_server (
   class { 'argus_server::config': }
   class { 'argus_server::services': }
   class { 'argus_server::policy': }
-  Class['argus_server::install'] -> Class['argus_server::config'] -> Class['argus_server::services'] -> Class['argus_server::policy']
+  Class['argus_server::repositories'] ->  Class['argus_server::install'] -> Class['argus_server::config'] -> Class['argus_server::services'] -> Class['argus_server::policy']
 }

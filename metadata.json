@@ -7,5 +7,15 @@
   "source": "https://github.com/HEP-Puppet/argus_server",
   "version": "0.0.3",
   "dependencies": [],
-  "name": "HEPPuppet-argus"
+  "name": "HEPPuppet-argus",
+  "dependencies": [
+    {
+      "name": "puppetlabs/concat",
+      "version_requirement": "\u003e\u003d1.0.0"
+    },
+    {
+      "name": "puppet/fetchcrl",
+      "version_requirement": "\u003e\u003d2.1.0"
+    }
+  ]
 }

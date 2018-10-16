@@ -1,25 +1,16 @@
-resource "http://authz-interop.org/xacml/resource/resource-type/wn" {
+<% if @pap_policy['resources'] -%>
+<% @pap_policy['resources'].each do |resource| -%>
+resource "<%= resource['resource'] %>" {
   obligation "http://glite.org/xacml/obligation/local-environment-map" {}
-  action "http://glite.org/xacml/action/execute" {
-  <% @pap_policy['permit'].each do |value| -%>
-    rule permit { <%= value %> }
-  <% end -%>
-  }
-}
-resource "http://lcg.cscs.ch/xacml/resource/resource-type/creamce" {
-  obligation "http://glite.org/xacml/obligation/local-environment-map" {}
+  <% if resource['action'] -%>
+  action "<%= resource['action'] %>" {
+  <% else -%>
   action ".*" {
-  <% @pap_policy['permit'].each do |value| -%>
+  <% end -%>
+  <% resource['permit'].each do |value| -%>
     rule permit { <%= value %> }
   <% end -%>
   }
 }
-resource "http://authz-interop.org/xacml/resource/resource-type/arc" {
-  obligation "http://glite.org/xacml/obligation/local-environment-map" {}
-  action ".*" {
-  <% @pap_policy['permit'].each do |value| -%>
-    rule permit { <%= value %> }
-  <% end -%>
-  }
-}
-
+<% end -%>
+<% end -%>
