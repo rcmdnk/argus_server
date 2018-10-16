@@ -1,4 +1,4 @@
-# argus #
+# Puppet Module for Argus Server #
 
 This is the argus module, it installs the argus service. The argus service to work needs other modules.
 
@@ -15,3 +15,19 @@ An example of hiera configuration, including an array of policies, is in the exa
 
 ### License
 ASL 2.0
+=======
+Documentation
+=========================
+https://www.gridpp.ac.uk/wiki/Argus_Server
+https://twiki.cern.ch/twiki/pub/EMI/ArgusEMIDocumentation/EMI-Argus-SysAdminGuide-1.1.0.pdf
+
+Requirements
+=========================
+- Requires the host certificate and key to be set up in /etc/grid-security/hostcert.pem and /etc/grid-security/hostkey.pem
+- Scientific Linux 6.X
+
+Features
+=========================
+- Installs the EGI IGTF trust anchors
+- Installs fetch-crl (from the EPEL repository), runs it once, and enables the cron job
+- Installs EMI Argus server
