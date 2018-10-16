@@ -14,7 +14,7 @@ def update_metadata_json(release):
 
 
 def update_readme(release):
-    input_file = 'README.markdown'
+    input_file = 'README.md'
     with open(input_file) as f:
         content = f.readlines()
 
