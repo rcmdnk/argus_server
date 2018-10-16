@@ -22,7 +22,7 @@
       "version_requirement": "\u003e\u003d1.0.0"
     },
     {
-      "name": "puppet/fetchcrl"
+      "name": "puppet/fetchcrl",
       "version_requirement": "\u003e\u003d2.1.0"
     }
   ]
