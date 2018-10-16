@@ -52,18 +52,36 @@ class argus_server::config(
     notify  => Service['argus-pepd'],
   }
 
-  file { $servicecert:
-    ensure  => 'present',
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0600',
-    source  => $servicecert_source,
+  if $servicecert_source != "" {
+    file { $servicecert:
+      ensure  => 'present',
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0600',
+    }
+  }else{
+    file { $servicecert:
+      ensure  => 'present',
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0600',
+      source  => $servicecert_source,
+    }
   }
-  file { $servicekey:
-    ensure  => 'present',
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-    source  => $servicekey_source,
+  if $servicekey_source != "" {
+    file { $servicekey:
+      ensure  => 'present',
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0644',
+    }
+  }else{
+    file { $servicekey:
+      ensure  => 'present',
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0644',
+      source  => $servicekey_source,
+    }
   }
 }
