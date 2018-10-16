@@ -7,6 +7,10 @@ class argus_server::config(
   $centralban_host    = $argus_server::centralban_host,
   $pap_poll_interval  = $argus_server::pap_poll_interval,
   $admin_password     = $argus_server::admin_password,
+  $servicecert        = $argus_server::servicecert,
+  $servicekey         = $argus_server::servicekey,
+  $servicecert_source = $argus_server::servicecert_source,
+  $servicekey_source  = $argus_server::servicekey_source,
 ) {
 
   # ARGUS configuration files
@@ -44,5 +48,38 @@ class argus_server::config(
     mode    => '0640',
     content => template("${module_name}/pepd.ini.erb"),
     notify  => Service['argus-pepd'],
+  }
+
+  if $servicecert_source != '' {
+    file { $servicecert:
+      ensure => 'present',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0600',
+      source => $servicecert_source,
+    }
+  }else{
+    file { $servicecert:
+      ensure => 'present',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0600',
+    }
+  }
+  if $servicekey_source != '' {
+    file { $servicekey:
+      ensure => 'present',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0644',
+      source => $servicekey_source,
+    }
+  }else{
+    file { $servicekey:
+      ensure => 'present',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0644',
+    }
   }
 }
