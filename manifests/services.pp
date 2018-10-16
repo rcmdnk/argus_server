@@ -11,10 +11,6 @@ class argus_server::services {
   exec { 'hostcert update':
     command   => '/usr/bin/systemctl restart argus-pap argus-pdp argus-pepd',
     refreshonly => true,
-    subscribe => [
-      File['/etc/grid-security/hostcert.pem'],
-      File['/etc/grid-security/hostkey.pem'],
-    ],
   }
 
   service { 'argus-pap':

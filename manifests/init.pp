@@ -15,15 +15,19 @@ class argus_server (
   $argus_host = '',
   $argus_host_dn = '',
   $pap_poll_interval = 3600,
-  $pdp_retention_interval = 240,  
+  $pdp_retention_interval = 240,
   $pap_policy = {},
   $centralban_enabled = 'false',
   $centralban_host = 'argusngi.gridpp.rl.ac.uk',
   $centralban_dn = '/C=UK/O=eScience/OU=CLRC/L=RAL/CN=argusngi.gridpp.rl.ac.uk',
+  $hostkey = false,
+  $hostcert = false,
 ){
-  
   class { 'argus_server::install': }
-  class { 'argus_server::config': }
+  class { 'argus_server::config':
+    hostkey = $hostkey,
+    hostcert = $hostcert,
+  }
   class { 'argus_server::services': }
   class { 'argus_server::policy': }
   Class['argus_server::install'] -> Class['argus_server::config'] -> Class['argus_server::services'] -> Class['argus_server::policy']
