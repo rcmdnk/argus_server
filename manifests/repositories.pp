@@ -2,7 +2,7 @@ class argus_server::repositories {
   case $facts['os']['family'] {
     'RedHat': {
       package { 'epel-release':
-        ensure => installed,
+        ensure   => installed,
         provider => rpm,
       }
       case $facts['os']['release']['major'] {
@@ -14,9 +14,9 @@ class argus_server::repositories {
         }
       }
       package { 'umd-release':
-        ensure => installed,
-        source => "$umd_source",
-        require  => Package['epel-release'],
+        ensure  => installed,
+        source  => $umd_source,
+        require => Package['epel-release'],
       }
     }
     default: {
