@@ -30,7 +30,7 @@ adminPassword = <%= @admin_password %>
 
 [POLICY]
 paps = https://<%= @argus_host %>:8150/pap/services/ProvisioningService
-retentionInterval = 240
+retentionInterval = <%= @pdp_retention_interval %>
 
 [SECURITY]
 servicePrivateKey = /etc/grid-security/hostkey.pem

@@ -6,6 +6,7 @@ class argus_server::config(
   $centralban_dn      = $argus_server::centralban_dn,
   $centralban_host    = $argus_server::centralban_host,
   $pap_poll_interval  = $argus_server::pap_poll_interval,
+  $pdp_retention_interval = $argus_server::pdp_retention_interval,
   $admin_password     = $argus_server::admin_password,
 ) {
 
