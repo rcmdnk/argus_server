@@ -25,8 +25,8 @@ class argus_server (
 ){
   class { 'argus_server::install': }
   class { 'argus_server::config':
-    hostkey = $hostkey,
-    hostcert = $hostcert,
+    hostkey => $hostkey,
+    hostcert => $hostcert,
   }
   class { 'argus_server::services': }
   class { 'argus_server::policy': }
