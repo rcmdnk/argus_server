@@ -6,7 +6,7 @@ class argus_server::repositories {
   if $facts['os']['release']['major'] == '7' {
     package { 'wlcg-repo':
       ensure => installed,
-      source => "http://linuxsoft.cern.ch/wlcg/centos7/x86_64/wlcg-repo-1.0.0-1.el7.noarch.rp",
+      source => "http://linuxsoft.cern.ch/wlcg/centos7/x86_64/wlcg-repo-1.0.0-1.el7.noarch.rpm",
       provider => rpm,
     }
     package { "HEP_OSlibs":
