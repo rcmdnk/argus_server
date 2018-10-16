@@ -37,9 +37,10 @@ class argus_server (
     }
   }
 
+  class { 'argus_server::repositories': }
   class { 'argus_server::install': }
   class { 'argus_server::config': }
   class { 'argus_server::services': }
   class { 'argus_server::policy': }
-  Class['argus_server::install'] -> Class['argus_server::config'] -> Class['argus_server::services'] -> Class['argus_server::policy']
+  Class['argus_server::repositories'] ->  Class['argus_server::install'] -> Class['argus_server::config'] -> Class['argus_server::services'] -> Class['argus_server::policy']
 }
