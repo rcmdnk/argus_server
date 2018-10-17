@@ -2,6 +2,7 @@
 # Sets up the configuration file and file dependencies.
 class argus_server::config(
   $argus_host         = $argus_server::argus_host,
+  $argus_host_dn      = $argus_server::argus_host_dn,
   $centralban_enabled = $argus_server::centralban_enabled,
   $centralban_dn      = $argus_server::centralban_dn,
   $centralban_host    = $argus_server::centralban_host,
@@ -21,6 +22,15 @@ class argus_server::config(
     group   => 'root',
     mode    => '0640',
     content => template("${module_name}/pap-admin.properties.erb"),
+    notify  => Service['argus-pap'],
+  }
+
+  file { '/etc/argus/pap/pap_authorization.ini':
+    ensure  => 'present',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0640',
+    content => template("${module_name}/pap_authorization.ini.erb"),
     notify  => Service['argus-pap'],
   }
 

@@ -11,9 +11,9 @@
 # Sample Usage:
 #
 class argus_server (
-  $argus_host_dn,
   $admin_password,
   $argus_host             = $::fqdn,
+  $argus_host_dn          = ['ANYONE: ALL'],
   $packages               = ['java-1.8.0-openjdk', 'argus-authz', 'bdii', 'glite-info-provider-service'],
   $pap_poll_interval      = 3600,
   $pdp_retention_interval = 240,
