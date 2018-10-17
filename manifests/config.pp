@@ -25,6 +25,15 @@ class argus_server::config(
     notify  => Service['argus-pap'],
   }
 
+  file { '/etc/argus/pap/pap_authorization.ini':
+    ensure  => 'present',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0640',
+    content => template("${module_name}/pap_authorization.ini.erb"),
+    notify  => Service['argus-pap'],
+  }
+
   file { '/etc/argus/pap/pap_configuration.ini':
     ensure  => 'present',
     owner   => 'root',
@@ -52,36 +61,36 @@ class argus_server::config(
     notify  => Service['argus-pepd'],
   }
 
-  if $servicecert_source != "" {
+  if $servicecert_source != '' {
     file { $servicecert:
-      ensure  => 'present',
-      owner   => 'root',
-      group   => 'root',
-      mode    => '0600',
-      source  => $servicecert_source,
+      ensure => 'present',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0600',
+      source => $servicecert_source,
     }
   }else{
     file { $servicecert:
-      ensure  => 'present',
-      owner   => 'root',
-      group   => 'root',
-      mode    => '0600',
+      ensure => 'present',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0600',
     }
   }
-  if $servicekey_source != "" {
+  if $servicekey_source != '' {
     file { $servicekey:
-      ensure  => 'present',
-      owner   => 'root',
-      group   => 'root',
-      mode    => '0644',
-      source  => $servicekey_source,
+      ensure => 'present',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0644',
+      source => $servicekey_source,
     }
   }else{
     file { $servicekey:
-      ensure  => 'present',
-      owner   => 'root',
-      group   => 'root',
-      mode    => '0644',
+      ensure => 'present',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0644',
     }
   }
 }
