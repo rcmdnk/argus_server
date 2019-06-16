@@ -66,7 +66,7 @@ class argus_server::config(
       ensure => 'present',
       owner  => 'root',
       group  => 'root',
-      mode   => '0600',
+      mode   => '0644',
       source => $servicecert_source,
     }
   }else{
@@ -74,7 +74,7 @@ class argus_server::config(
       ensure => 'present',
       owner  => 'root',
       group  => 'root',
-      mode   => '0600',
+      mode   => '0644',
     }
   }
   if $servicekey_source != '' {
@@ -82,7 +82,7 @@ class argus_server::config(
       ensure => 'present',
       owner  => 'root',
       group  => 'root',
-      mode   => '0644',
+      mode   => '0600',
       source => $servicekey_source,
     }
   }else{
@@ -90,7 +90,7 @@ class argus_server::config(
       ensure => 'present',
       owner  => 'root',
       group  => 'root',
-      mode   => '0644',
+      mode   => '0600',
     }
   }
 }
